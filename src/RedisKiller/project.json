@@ -1,0 +1,23 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "RedisKiller Console Application",
+  "authors": [ "philip" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+  },
+
+  "commands": {
+    "RedisKiller": "RedisKiller"
+  },
+
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+        "StackExchange.Redis" :  "1.0.481"
+      }
+    }
+  }
+}
