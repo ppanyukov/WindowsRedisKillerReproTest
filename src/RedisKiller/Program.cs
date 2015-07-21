@@ -21,7 +21,28 @@
             //
             // See this SO question for details: http://stackoverflow.com/questions/31525903/redis-aborting-for-out-of-memory/31538609
             //
-            var killerArraySize = 64 * 1024;
+            var killerArraySize = 64 * 1024;  // original value size which causes BOOM.
+
+            // This is the lower boundary where things still work.
+            //var killerArraySize = 32 * 1024 - 1;
+
+            // This is the lower boundary where the things stop working.
+            //var killerArraySize = 32 * 1024;
+
+            // Still doesn't work with this
+            //var killerArraySize = 64 * 1024; 
+
+            // Still doesn't work
+            //var killerArraySize = 128 * 1024 - 19;
+
+            // And this works again!
+            //var killerArraySize = 128 * 1024 - 18;
+
+            // These all work too.
+            //var killerArraySize = 128 * 1024;
+            //var killerArraySize = 560 * 1024;
+            //var killerArraySize = 1024 * 1024;
+
 
             try
             {
@@ -29,7 +50,7 @@
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine($"Oh Dear. BOOM. {e.Message}");
+                Console.Error.WriteLine($"Oh Dear. BOOM. {e.Message}. Array size: {killerArraySize.ToString("")}");
             }
         }
 
