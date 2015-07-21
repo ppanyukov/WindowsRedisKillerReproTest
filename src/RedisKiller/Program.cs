@@ -46,7 +46,7 @@
 
                 // Keep shoving this into Redis until it dies
                 var iteration = 1;
-                var totalBytes = arraySize;
+                var totalBytes = (long)arraySize;
                 while (true)
                 {
                     var key = $"foo_{iteration.ToString("G")}";
